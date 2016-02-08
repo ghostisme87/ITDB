@@ -1,0 +1,26 @@
+﻿Build started 08.02.2016 13:44:30.
+     1>Project "C:\Users\h\Documents\GitHub\ITDB\ITDBServer\ITDBServer\ITDBServer.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"stdafx.h" /Fp"Debug\ITDBServer.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug\ITDBServer.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt ITDBServer.cpp ITDBServerDoc.cpp ITDBServerView.cpp MainFrm.cpp
+         MainFrm.cpp
+         ITDBServerView.cpp
+         ITDBServerDoc.cpp
+         ITDBServer.cpp
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0409" /IDebug\ /nologo /fo"Debug\ITDBServer.res" ITDBServer.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\h\Documents\GitHub\ITDB\ITDBServer\Debug\ITDBServer.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\Include\Manifest\dpiaware.manifest" /Debug /PDB:"C:\Users\h\Documents\GitHub\ITDB\ITDBServer\Debug\ITDBServer.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\h\Documents\GitHub\ITDB\ITDBServer\Debug\ITDBServer.lib" /MACHINE:X86 Debug\ITDBServer.res
+         Debug\ITDBServer.obj
+         Debug\ITDBServerDoc.obj
+         Debug\ITDBServerView.obj
+         Debug\MainFrm.obj
+         Debug\stdafx.obj
+         ITDBServer.vcxproj -> C:\Users\h\Documents\GitHub\ITDB\ITDBServer\Debug\ITDBServer.exe
+     1>Done Building Project "C:\Users\h\Documents\GitHub\ITDB\ITDBServer\ITDBServer\ITDBServer.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:11.19

@@ -92,9 +92,14 @@ BOOL CITDBServerApp::InitInstance()
 	// Change the registry key under which our settings are stored
 	// TODO: You should modify this string to be something appropriate
 	// such as the name of your company or organization
-	SetRegistryKey(_T("Local AppWizard-Generated Applications"));
+	SetRegistryKey(_T("KVA"));
 	LoadStdProfileSettings(0);  // Load standard INI file options (including MRU)
 
+	// Check for first run
+	if (1 == (int)GetProfileInt(L"Settings", L"FirstRun", 1))
+	{
+		AfxMessageBox(L"First run");
+	}
 
 	// Register the application's document templates.  Document templates
 	//  serve as the connection between documents, frame windows and views
