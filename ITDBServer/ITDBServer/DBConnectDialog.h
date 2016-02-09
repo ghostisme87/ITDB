@@ -1,4 +1,5 @@
 #pragma once
+#include "afxwin.h"
 
 
 // CCBConnectDialog dialog
@@ -20,4 +21,6 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	DECLARE_MESSAGE_MAP()
+public:
+	CComboBox m_cbDSN;
 };

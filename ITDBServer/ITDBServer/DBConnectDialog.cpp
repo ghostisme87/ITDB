@@ -24,6 +24,7 @@ CDBConnectDialog::~CDBConnectDialog()
 void CDBConnectDialog::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_CBDBNAME, m_cbDSN);
 }
 
 
