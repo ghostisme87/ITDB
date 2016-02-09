@@ -189,6 +189,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DBConnectDialog.h" />
     <ClInclude Include="ITDBServer.h" />
     <ClInclude Include="ITDBServerDoc.h" />
     <ClInclude Include="ITDBServerView.h" />
@@ -198,6 +199,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DBConnectDialog.cpp" />
     <ClCompile Include="ITDBServer.cpp" />
     <ClCompile Include="ITDBServerDoc.cpp" />
     <ClCompile Include="ITDBServerView.cpp" />
@@ -223,4 +225,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="ITDBServer.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
