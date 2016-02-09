@@ -11,13 +11,13 @@
 
 IMPLEMENT_DYNAMIC(CDBConnectDialog, CDialog)
 
-CDBConnectDialog::CCBConnectDialog(CWnd* pParent /*=NULL*/)
+CDBConnectDialog::CDBConnectDialog(CWnd* pParent /*=NULL*/)
 	: CDialog(IDD_DBCONNECT, pParent)
 {
 
 }
 
-CDBConnectDialog::~CCBConnectDialog()
+CDBConnectDialog::~CDBConnectDialog()
 {
 }
 
@@ -27,7 +27,7 @@ void CDBConnectDialog::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CCBConnectDialog, CDialog)
+BEGIN_MESSAGE_MAP(CDBConnectDialog, CDialog)
 END_MESSAGE_MAP()
 
 
