@@ -13,6 +13,7 @@ IMPLEMENT_DYNAMIC(CDBConnectDialog, CDialog)
 
 CDBConnectDialog::CDBConnectDialog(CWnd* pParent /*=NULL*/)
 	: CDialog(IDD_DBCONNECT, pParent)
+	, m_strDSN(_T(""))
 {
 
 }
@@ -25,6 +26,9 @@ void CDBConnectDialog::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_CBDBNAME, m_cbDSN);
+	DDX_Text(pDX, IDC_EDSN, m_strDSN);
+	DDV_MaxChars(pDX, m_strDSN, 50);
+
 }
 
 
