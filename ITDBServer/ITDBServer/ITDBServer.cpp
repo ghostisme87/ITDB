@@ -11,6 +11,8 @@
 #include "ITDBServerDoc.h"
 #include "ITDBServerView.h"
 
+#include "DBConnectDialog.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -98,7 +100,11 @@ BOOL CITDBServerApp::InitInstance()
 	// Check for first run
 	if (1 == (int)GetProfileInt(L"Settings", L"FirstRun", 1))
 	{
-		AfxMessageBox(L"First run");
+		//AfxMessageBox(L"First run");
+
+		CDBConnectDialog *pDlg = new CDBConnectDialog();
+		pDlg->DoModal();
+		delete pDlg;
 	}
 
 	// Register the application's document templates.  Document templates

@@ -22,5 +22,13 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	CComboBox m_cbDSN;
+//	CComboBox m_cbDSN;
+	CString m_strDSN;
+	CString m_strPWD;
+	CString m_strUID;
+	CListBox m_lbDSN;
+	afx_msg void OnDropdownCbdbname();
+	CComboBox m_cbDBName;
+	//void addd(CString);
+	virtual void OnOK();
 };
