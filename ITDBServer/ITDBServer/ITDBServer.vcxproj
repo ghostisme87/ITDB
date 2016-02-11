@@ -189,6 +189,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Connector.h" />
     <ClInclude Include="DBConnectDialog.h" />
     <ClInclude Include="ITDBServer.h" />
     <ClInclude Include="ITDBServerDoc.h" />
@@ -199,6 +200,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Connector.cpp" />
     <ClCompile Include="DBConnectDialog.cpp" />
     <ClCompile Include="ITDBServer.cpp" />
     <ClCompile Include="ITDBServerDoc.cpp" />

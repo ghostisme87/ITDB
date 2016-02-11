@@ -37,7 +37,7 @@ wchar_t ** CConnector::Request(CString req)
 	m_rc = new CRecordset(&m_cdb);
 	m_rc->Open(CRecordset::dynamic, req, CRecordset::none);
 	ans = new wchar_t*[5];
-	int i = 0;
+	unsigned int i = 0;
 	while (!m_rc->IsEOF())
 	{
 		CString buff;
