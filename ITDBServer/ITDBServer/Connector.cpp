@@ -10,6 +10,10 @@ CConnector::CConnector()
 
 CConnector::~CConnector()
 {
+	if (m_cdb.IsOpen())
+	{
+		m_cdb.Close();
+	}
 }
 
 bool CConnector::Connect(CString con_str)
@@ -30,6 +34,8 @@ bool CConnector::Connect(CString con_str)
 	}
 	return true;
 }
+
+
 
 wchar_t ** CConnector::Request(CString req)
 {

@@ -67,7 +67,7 @@ END
 // Dialog
 //
 
-IDD_DBCONNECT DIALOGEX 0, 0, 241, 244
+IDD_DBCONNECT DIALOGEX 0, 0, 241, 215
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "DB Connect"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
@@ -80,11 +80,12 @@ BEGIN
     EDITTEXT        IDC_EUID,55,135,112,14,ES_AUTOHSCROLL
     LTEXT           "&Password:",IDC_STATIC,7,162,34,8
     EDITTEXT        IDC_EPASSWORD,55,160,112,14,ES_PASSWORD | ES_AUTOHSCROLL
-    LTEXT           "DB &Name:",IDC_STATIC,8,191,32,8
-    COMBOBOX        IDC_CBDBNAME,55,188,112,30,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "Auto &connect to database",IDC_CHECKAUTOCONN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,217,99,10
-    DEFPUSHBUTTON   "Apply",IDOK,184,17,50,14
+    LTEXT           "DB &Name:",IDC_STATIC,6,181,32,8,NOT WS_VISIBLE
+    COMBOBOX        IDC_CBDBNAME,55,177,112,30,CBS_DROPDOWN | CBS_SORT | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Auto &connect to database",IDC_CHECKAUTOCONN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,197,99,10
+    DEFPUSHBUTTON   "Apply",IDOK,184,17,50,14,WS_DISABLED
     PUSHBUTTON      "Cancel",IDCANCEL,184,36,50,14
+    PUSHBUTTON      "Test connection",IDC_BNTESTCONN,107,193,59,14,WS_DISABLED
 END
 
 
@@ -101,7 +102,7 @@ BEGIN
         LEFTMARGIN, 6
         RIGHTMARGIN, 234
         TOPMARGIN, 7
-        BOTTOMMARGIN, 237
+        BOTTOMMARGIN, 208
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -130,13 +131,51 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About ITDBServer"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
+    LTEXT           "ITDBServer, Version 1.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2016",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "OK",IDOK,113,41,50,14,WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // Icon
 //
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "res\\ITDBServer.ico"
+
 IDR_ITDBServerTYPE      ICON                    "res\\ITDBServerDoc.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -144,6 +183,7 @@ IDR_ITDBServerTYPE      ICON                    "res\\ITDBServerDoc.ico"
 //
 
 IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -202,6 +242,10 @@ BEGIN
     BEGIN
         MENUITEM "&About ITDBServer...",        ID_APP_ABOUT
     END
+    POPUP "Settings"
+    BEGIN
+        MENUITEM "DB Connect",                  ID_SETTINGS_DBCONNECT
+    END
 END
 
 
@@ -226,23 +270,6 @@ BEGIN
     VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
     VK_F6,          ID_NEXT_PANE,           VIRTKEY 
     VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog
-//
-
-IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "About ITDBServer"
-FONT 8, "MS Shell Dlg", 0, 0, 0x1
-BEGIN
-    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
-    LTEXT           "ITDBServer, Version 1.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2016",IDC_STATIC,42,26,114,8
-    DEFPUSHBUTTON   "OK",IDOK,113,41,50,14,WS_GROUP
 END
 
 
@@ -283,25 +310,6 @@ BEGIN
         VALUE "Translation", 0x409, 1200
     END
 END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO
-BEGIN
-    IDD_ABOUTBOX, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 163
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 55
-    END
-END
-#endif    // APSTUDIO_INVOKED
 
 
 /////////////////////////////////////////////////////////////////////////////

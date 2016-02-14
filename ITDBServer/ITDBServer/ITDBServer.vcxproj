@@ -191,6 +191,7 @@
   <ItemGroup>
     <ClInclude Include="Connector.h" />
     <ClInclude Include="DBConnectDialog.h" />
+    <ClInclude Include="FileRW.h" />
     <ClInclude Include="ITDBServer.h" />
     <ClInclude Include="ITDBServerDoc.h" />
     <ClInclude Include="ITDBServerView.h" />
@@ -202,6 +203,7 @@
   <ItemGroup>
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="DBConnectDialog.cpp" />
+    <ClCompile Include="FileRW.cpp" />
     <ClCompile Include="ITDBServer.cpp" />
     <ClCompile Include="ITDBServerDoc.cpp" />
     <ClCompile Include="ITDBServerView.cpp" />

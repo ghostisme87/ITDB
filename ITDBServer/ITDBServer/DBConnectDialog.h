@@ -31,4 +31,17 @@ public:
 	CComboBox m_cbDBName;
 	//void addd(CString);
 	virtual void OnOK();
+	CButton m_bnOK;
+	CButton m_bnTestConnect;
+	afx_msg void OnClickedBntestconn();
+	CButton m_chbAutoConnect;
+	CEdit m_editDSN;
+	CEdit m_editUID;
+	afx_msg void OnChangeEdsn();
+	afx_msg void OnUpdateEdsn();
+	void IsEditEmpty();
+	afx_msg void OnChangeEuid();
+	virtual BOOL OnInitDialog();
 };
+
+void PASCAL DDV_Empty(CDataExchange *pDX, CString str);

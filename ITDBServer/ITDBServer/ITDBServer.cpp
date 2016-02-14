@@ -27,6 +27,7 @@ BEGIN_MESSAGE_MAP(CITDBServerApp, CWinApp)
 	ON_COMMAND(ID_FILE_OPEN, &CWinApp::OnFileOpen)
 	// Standard print setup command
 	ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinApp::OnFilePrintSetup)
+	ON_COMMAND(ID_SETTINGS_DBCONNECT, &CITDBServerApp::OnSettingsDbconnect)
 END_MESSAGE_MAP()
 
 
@@ -104,6 +105,7 @@ BOOL CITDBServerApp::InitInstance()
 
 		CDBConnectDialog *pDlg = new CDBConnectDialog();
 		pDlg->DoModal();
+		
 		delete pDlg;
 	}
 
@@ -166,6 +168,9 @@ protected:
 // Implementation
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnUpdateEdsn(CCmdUI *pCmdUI);
+	afx_msg void OnSettingsDbconnect();
 };
 
 CAboutDlg::CAboutDlg() : CDialogEx(IDD_ABOUTBOX)
@@ -178,6 +183,8 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
+	ON_UPDATE_COMMAND_UI(IDC_EDSN, &CAboutDlg::OnUpdateEdsn)
+	ON_COMMAND(ID_SETTINGS_DBCONNECT, &CAboutDlg::OnSettingsDbconnect)
 END_MESSAGE_MAP()
 
 // App command to run the dialog
@@ -191,3 +198,25 @@ void CITDBServerApp::OnAppAbout()
 
 
 
+
+
+void CAboutDlg::OnUpdateEdsn(CCmdUI *pCmdUI)
+{
+	// TODO: Add your command update UI handler code here
+}
+
+
+void CAboutDlg::OnSettingsDbconnect()
+{
+	// TODO: Add your command handler code here
+	
+}
+
+
+void CITDBServerApp::OnSettingsDbconnect()
+{
+	// TODO: Add your command handler code here
+	CDBConnectDialog *pDlg = new CDBConnectDialog();
+	pDlg->DoModal();
+	delete pDlg;
+}
