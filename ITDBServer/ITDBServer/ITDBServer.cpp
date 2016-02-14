@@ -107,6 +107,8 @@ BOOL CITDBServerApp::InitInstance()
 		pDlg->DoModal();
 		
 		delete pDlg;
+
+		WriteProfileInt(L"Settings", L"FirstRun", 0);
 	}
 
 	// Register the application's document templates.  Document templates

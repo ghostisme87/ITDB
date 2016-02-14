@@ -42,6 +42,7 @@ public:
 	void IsEditEmpty();
 	afx_msg void OnChangeEuid();
 	virtual BOOL OnInitDialog();
+	afx_msg void OnClickedCheckautoconn();
 };
 
 void PASCAL DDV_Empty(CDataExchange *pDX, CString str);

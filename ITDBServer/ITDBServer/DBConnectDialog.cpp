@@ -56,6 +56,7 @@ BEGIN_MESSAGE_MAP(CDBConnectDialog, CDialog)
 	ON_EN_CHANGE(IDC_EDSN, &CDBConnectDialog::OnChangeEdsn)
 	ON_EN_UPDATE(IDC_EDSN, &CDBConnectDialog::OnUpdateEdsn)
 	ON_EN_CHANGE(IDC_EUID, &CDBConnectDialog::OnChangeEuid)
+	ON_BN_CLICKED(IDC_CHECKAUTOCONN, &CDBConnectDialog::OnClickedCheckautoconn)
 END_MESSAGE_MAP()
 
 
@@ -63,52 +64,7 @@ END_MESSAGE_MAP()
 
 
 void CDBConnectDialog::OnDropdownCbdbname()
-{
-	// TODO: Add your control notification handler code here
-	//m_cbDBName.foc
-	m_cbDBName.ResetContent();
-	UpdateData(TRUE);
-
-	if (m_strDSN != L"" && m_strUID != L"" && m_strPWD != L"")
-	{
-
-		CString str = L"DSN=" + m_strDSN + L";UID=" + m_strUID + L";PWD=" + m_strPWD;
-		CConnector con;
-		if (con.Connect(str))
-		{
-			wchar_t **ans = nullptr;
-			ans = con.Request(L"select * from sys.databases");
-			for (int i = 0; i < 4; ++i)
-			{
-				m_cbDBName.AddString(ans[i]);
-				//m_lbDSN.AddString(ans[i]);
-			}
-			for (int i = 0; i < 4; ++i)
-			{
-				delete[] ans[i];
-			}
-			delete[] ans;
-		}
-		m_cbDBName.SetCurSel(0);
-	}
-	/*CDatabase cdb;
-	cdb.OpenEx(str, 0);
-	
-	CRecordset rc(&cdb);
-
-	rc.Open(CRecordset::dynamic, L"select * from sys.databases", CRecordset::none);
-
-	while (!rc.IsEOF())
-	{
-		CString s;
-		rc.GetFieldValue(L"name", s);
-		m_cbDBName.AddString(s);
-		rc.MoveNext();
-	}
-	rc.Close();
-	cdb.Close();*/
-
-	
+{	
 }
 
 struct data
@@ -123,6 +79,8 @@ void CDBConnectDialog::OnOK()
 	// TODO: Add your specialized code here and/or call the base class
 	CITDBServerApp *pApp = dynamic_cast<CITDBServerApp*>(AfxGetApp());
 	ASSERT_VALID(pApp);
+
+	m_lbDSN.ResetContent();
 
 	UpdateData(TRUE);
 
@@ -220,16 +178,28 @@ BOOL CDBConnectDialog::OnInitDialog()
 
 	CITDBServerApp *pApp = dynamic_cast<CITDBServerApp*>(AfxGetApp());
 	ASSERT_VALID(pApp);
-
 	
 	m_strDSN = pApp->GetProfileString(L"Settings\\DB", L"DSN", L"");
 	m_strUID = pApp->GetProfileString(L"Settings\\DB", L"UID", L"");
 	m_strPWD = pApp->GetProfileString(L"Settings\\DB", L"PWD", L"");
 	m_chbAutoConnect.SetCheck((BOOL)pApp->GetProfileIntW(L"Settings\\DB", L"AutoConnect", 0));
-	UpdateWindow();
+
+	UpdateData(FALSE);
+	m_lbDSN.AddString(m_strDSN);
+	if (!m_strDSN.IsEmpty() && !m_strUID.IsEmpty())
+	{
+		m_bnTestConnect.EnableWindow(TRUE);
+	}
 
 	// TODO:  Add extra initialization here
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX Property Pages should return FALSE
+}
+
+
+void CDBConnectDialog::OnClickedCheckautoconn()
+{
+	// TODO: Add your control notification handler code here
+	IsEditEmpty();
 }
