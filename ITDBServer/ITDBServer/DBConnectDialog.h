@@ -43,6 +43,7 @@ public:
 	afx_msg void OnChangeEuid();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnClickedCheckautoconn();
+	afx_msg void OnChangeEpassword();
 };
 
 void PASCAL DDV_Empty(CDataExchange *pDX, CString str);

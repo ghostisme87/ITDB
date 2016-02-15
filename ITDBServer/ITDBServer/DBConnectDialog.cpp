@@ -57,6 +57,7 @@ BEGIN_MESSAGE_MAP(CDBConnectDialog, CDialog)
 	ON_EN_UPDATE(IDC_EDSN, &CDBConnectDialog::OnUpdateEdsn)
 	ON_EN_CHANGE(IDC_EUID, &CDBConnectDialog::OnChangeEuid)
 	ON_BN_CLICKED(IDC_CHECKAUTOCONN, &CDBConnectDialog::OnClickedCheckautoconn)
+	ON_EN_CHANGE(IDC_EPASSWORD, &CDBConnectDialog::OnChangeEpassword)
 END_MESSAGE_MAP()
 
 
@@ -201,5 +202,17 @@ BOOL CDBConnectDialog::OnInitDialog()
 void CDBConnectDialog::OnClickedCheckautoconn()
 {
 	// TODO: Add your control notification handler code here
+	IsEditEmpty();
+}
+
+
+void CDBConnectDialog::OnChangeEpassword()
+{
+	// TODO:  If this is a RICHEDIT control, the control will not
+	// send this notification unless you override the CDialog::OnInitDialog()
+	// function and call CRichEditCtrl().SetEventMask()
+	// with the ENM_CHANGE flag ORed into the mask.
+
+	// TODO:  Add your control notification handler code here
 	IsEditEmpty();
 }

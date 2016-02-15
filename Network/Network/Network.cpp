@@ -20,3 +20,4 @@ CNetwork::CNetwork()
 {
     return;
 }
+
